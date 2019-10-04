@@ -1,3 +1,6 @@
+# vscodeの設定ファイルをgit管理対象から外す
+.vscode/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
