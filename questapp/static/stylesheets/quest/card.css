@@ -14,17 +14,3 @@
   font-size: 1.4rem;
   color: coral;
 }
-
-#delete_button {
-  border: 0 solid #333;
-  color: #ccc;
-  margin: 0;
-  margin-left: 0.3rem;
-  text-align: left;
-} #delete_button:hover {
-  color: deeppink;
-}
-
-#delete_choice:hover {
-  background: url(../../img/nav-bg.png) no-repeat 0% 50%;
-}
