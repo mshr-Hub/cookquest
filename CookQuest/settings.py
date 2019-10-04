@@ -130,6 +130,6 @@ MEDIA_URL = '/media/'
 
 LOGIN_URL = 'login'
 
-AUTH_USER_MODEL = 'recipeapp.CustomUser'
+AUTH_USER_MODEL = 'questapp.CustomUser'
 
 PAGE_PER_ITEM = 3
