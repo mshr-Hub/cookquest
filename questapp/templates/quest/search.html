@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block customcss %}
+<link rel="stylesheet"  type='text/css' href="{% static 'stylesheets/quest/card.css' %}">
+{% endblock customcss %}
+
+{% block content %}
+<div class="container page-block">
+
+  <div>
+    <h3 class="page-title">
+      <i class="fas fa-search"></i>
+      Please input Quest title
+    </h3>
+  </div>
+
+  {% if title_validate %}
+  <div style="font-family: 'VT323', cursive; font-size: 1.5rem; text-align: center;" class="alert alert-danger" role="alert">
+    {{ title_validate }}
+  </div>
+  {% endif %}
+
+  <div class="container mt-3">
+    <form class="form-signin" method="POST" action="">{% csrf_token %}
+      <div class="container">
+        <div style="display: flex;" class="form-group">
+          <input style="font-size: 1.5rem;" name='quest_title' type="text" class="form-control" placeholder="Quest search">
+          <button style="border-style: none; color: #ccc; font-size: 1.5rem; font-family: 'VT323', cursive;" type="submit" class="btn btn-primary">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+</div>
+{% endblock content %}

@@ -1,0 +1,33 @@
+.form-inner {
+  display: flex;
+  padding: 0.6rem;
+}
+
+.message_text {
+  font-size: 1.2rem;
+  resize: none;
+  position: relative;
+}
+
+.icon_label {
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 0 0.8rem;
+}
+
+#image_send {
+  display: none;
+}
+
+#image_label {
+  color: darkseagreen;
+}
+
+#submit_btn {
+  display: none;
+}
+
+#submit_label {
+  font-size: 1.6rem;
+  color: lightskyblue;;
+}

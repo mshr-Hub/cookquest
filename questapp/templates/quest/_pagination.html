@@ -1,0 +1,51 @@
+{% load static %}
+
+{% block customcss %}
+<link rel="stylesheet"  type='text/css' href="{% static 'stylesheets/quest/pagination.css' %}">
+{% endblock customcss %}
+
+<!-- ページネーション start -->
+<div class="container pagination-block">
+  <div style="text-align: center;">
+    <span class="current-page_info">
+        Quest Board {{ page_quests.number }} / {{ page_quests.paginator.num_pages }}
+    </span>
+  </div>
+
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+    {% if page_quests.has_previous %}
+      <li class="pagination-link"><a id="FIRST_PAGE" href="?page=1">&laquo; FIRST</a></li>
+      <li class="pagination-link"><a href="?page={{ page_quests.previous_page_number }}">prev</a></li>
+    {% endif %}
+    {% for link_page in page_quests.paginator.page_range %}
+      {% if link_page %}
+          {% if link_page == page_quests.number %}
+            <li class="pagination-link">
+              <a id="current-page_link" href="#" class="btn btn-primary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true">
+                {{ link_page }}
+              </a>
+            </li>
+          {% else %}
+            <li class="pagination-link">
+              <a href="?page={{ link_page }}">
+                {{ link_page }}
+              </a>
+            </li>
+          {% endif %}
+      {% else %}
+        <li class="pagination-link disabled">
+          <a class="text-secondary" href="#">
+            ・・・
+          </a>
+        </li>
+      {% endif %}
+    {% endfor %}
+    {% if page_quests.has_next %}
+      <li class="pagination-link"><a href="?page={{ page_quests.next_page_number }}">next</a></li>
+      <li class="pagination-link"><a id="LAST_PAGE" href="?page={{ page_quests.paginator.num_pages }}">LAST &raquo;</a></li>
+    {% endif %}
+    </ul>
+  </nav>
+</div>
+<!-- ページネーション end -->

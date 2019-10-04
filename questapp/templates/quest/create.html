@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block customcss %}
+<link rel="stylesheet"  type='text/css' href="{% static 'stylesheets/quest/card.css' %}">
+{% endblock customcss %}
+
+{% block content %}
+<div class="container page-block">
+
+  <div>
+    <h3 class="page-title">
+      <i class="fas fa-pen-nib"></i>
+      Quest Create
+    </h3>
+  </div>
+
+  {% if title_validate %}
+  <div style="font-family: 'VT323', cursive; font-size: 1.5rem; text-align: center;" class="alert alert-danger" role="alert">
+    {{ title_validate }}
+  </div>
+  {% endif %}
+  {% if memo_validate %}
+  <div style="font-family: 'VT323', cursive; font-size: 1.5rem; text-align: center;" class="alert alert-danger" role="alert">
+    {{ memo_validate }}
+  </div>
+  {% endif %}
+  {% if text_validate %}
+  <div style="font-family: 'VT323', cursive; font-size: 1.5rem; text-align: center;" class="alert alert-danger" role="alert">
+    {{ text_validate }}
+  </div>
+  {% endif %}
+
+  <form class="form-signin" method="POST" action="" enctype="multipart/form-data">{% csrf_token %}
+    <div class="container">
+      <div class="form-group">
+        <label>クエストタイトル</label>
+        <input name='quest_title' type="text" class="form-control" placeholder="Quest title">
+      </div>
+      <div class="form-group">
+        <label>クエスト概要</label>
+        <input name="quest_memo" type="text" class="form-control" placeholder="Quest memo">
+      </div>
+      <div class="form-group">
+        <label>クエスト詳細</label>
+        <textarea rows="9" name="quest_text" type="text" class="form-control" placeholder="Quest text"></textarea>
+      </div>
+      <div class="form-group">
+        <label>クエスト画像</label>
+        <input name="quest_image" type="file" class="form-control">
+      </div>
+      <div class="form-group">
+        <input name="author" type="hidden" value="{{ user.username }}">
+      </div>
+      <button type="submit" class="btn btn-primary">クエスト依頼</button>
+    </div>
+  </form>
+
+</div>
+{% endblock content %}

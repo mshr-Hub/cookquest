@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block customcss %}
+<link rel="stylesheet"  type='text/css' href="{% static 'stylesheets/quest/card.css' %}">
+{% endblock customcss %}
+
+{% block content %}
+<div class="container page-block">
+
+  <div>
+    <h3 class="page-title">
+      <i class="fas fa-user-plus"></i>
+      Sign up
+    </h3>
+  </div>
+
+  {% if error %}
+  <div style="font-family: 'VT323', cursive; font-size: 1.5rem; text-align: center;" class="alert alert-danger" role="alert">
+    {{ error }}
+  </div>
+  {% endif %}
+
+  <form class="form-signin" method="POST" action="">{% csrf_token %}
+    <div class="container">
+      <div class="form-group">
+        <label for="exampleInputUsername">ユーザー名</label>
+        <input name='username' type="text" class="form-control" id="exampleInputUsername" placeholder="Username">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">メールアドレス</label>
+        <input name='email' type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">秘密の呪文</label>
+        <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      </div>
+      <button type="submit" class="btn btn-primary">登録する</button>
+    </div>
+  </form>
+
+</div>
+{% endblock content %}

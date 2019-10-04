@@ -1,0 +1,126 @@
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=VT323);
+/*!
+ * Template: 26-quest v1.0.0 (https://klee.mypace.net/)
+ * Copyright 2017 klee
+ * Licensed under MIT (https://opensource.org/licenses/mit-license.php)
+ */
+/* ============================================================
+  適用デバイス：すべて（xs,sm,md,lg）
+   ============================================================ */
+/* 適用対象：要素全体
+   ============================================================ */
+/* リセットCSS */
+h1{font-weight: normal;}
+nav ul{list-style:none;padding:0;}
+nav ul, dt, dd{margin: 0;}
+ins, h1 a, a:hover{text-decoration: none;}
+
+/* bodyなど */
+body{line-height:1.7;background: #333;color: #ccc;margin: 20px 0;}
+header{text-align: center;}
+main section{margin: 40px 0;}
+main section section{margin: 20px 0;}
+main section:first-child{margin-top: 20px;}
+main section:last-child{margin-bottom: 20px;}
+
+/* フォーム関連 */
+input, select, textarea{vertical-align:middle;}
+::-webkit-input-placeholder{color: #999;}
+:-ms-input-placeholder{color: #999;}
+::-moz-placeholder{color: #999;}
+label{cursor: pointer;}
+
+input, textarea{padding: 0.3em;border-radius: 2px;margin: 0 5px 5px 0;background: transparent;}
+input[type="text"], textarea{border: 1px solid #bbb;}
+input[type="submit"]{cursor: pointer;}
+
+/* リンク */
+a{color: #ccc;}
+
+/* 水平線 */
+hr{border-top: 1px solid #fff;}
+/* 重要性 */
+strong{color: #38bdf8;}
+/* 追加要素 */
+ins::after{color: #ccc;content: "new";border: 1px solid;margin-left: 10px;padding: 0 5px;}
+/* 適用対象：クラス名を付けた要素
+   ============================================================ */
+/* 見出し */
+.site-title{margin: 0;line-height: 1;}
+.site-title a:link, site-title a:visited{font-size: 3.6rem;font-family: 'VT323', cursive;}
+.site h2, .site h3{font-size: 100%;}
+.site h2{display: inline-block;border-bottom: 2px solid;}
+.site main h3::before{content: "＊";}
+.site main h3, .h3{margin: 5px auto;}
+
+/* ナビゲーションメニュー */
+.gnav{margin: -10px;}
+.gnav li a, .game li a{display: block;}
+.gnav li a, .game li a{text-decoration: none;padding: 0 0 0 1em;}
+.gnav li a:hover, local-nav li a:hover, .now, .game li a:hover{background: url(../img/nav-bg.png) no-repeat 0% 50%;}
+
+/* 展示リスト */
+.list, .list-ss{list-style: none;padding: 0;}
+.list li{color: #666;}
+.list li a{margin-right: 15px;}
+.list-caption dd{padding-left: 10px;}
+.list-display dt {float: left;width: 9em;height:auto;}
+.list-display dd {margin: 0 0 5px 9em;padding-left: 1em;}
+.list-caption dd, .list-display dd{color: #999;}
+.list-ss li{display: inline;border-right: 1px solid #ccc;padding-right: 7px;margin-right: 7px;}
+.list-ss li:last-child{border: none;}
+
+/* フォーム */
+.bottom{vertical-align: bottom;}
+.comment{width: 80%;max-width: 500px;}
+.btn, .btn-inline{background: transparent;border: 1px solid;}
+.btn:hover, .btn-inline:hover{color: #38bdf8;border-color: #38bdf8;}
+.btn-color{background: #999;color: #000;border: none;}
+.btn-color:hover{background: #38bdf8;}
+.btn-inline{display: block;}
+.hensin{margin: 5px 0;list-style:none;padding:0;}
+.hensin li{display: inline;margin-right: 1.5em;}
+.kansou label{padding-right: 1em;}
+
+/* リンクページ */
+.link-bn{margin: 10px 0;}
+.link-bn dd{margin-left: 10px;padding: 5px 10px;border-left: 1px solid #bbb;}
+.link-text a{margin-right: 1em;}
+.link-inline {padding-left: 0;}
+.link-inline li{display: inline;margin-right: 10px;}
+
+/* 折り畳みボックス */
+.acMenu dt{cursor:pointer;border-bottom: 1px solid;display: inline-block;}
+.acMenu dd{display:none;padding: 5px 0;}
+
+/* 小説ページ */
+h1.novel{text-align: center;font-size: 2.0rem;}
+.novel{font-size: 1.5rem;line-height: 2;}
+.afterword{margin-top: 120px;}
+/* 画像展示ページ */
+.img {text-align: center;}
+.img img{max-width: 100%;height: auto;margin: 60px auto;}
+/* ページ下部のメニュー */
+.local-nav {text-align: center;margin: 20px auto 0;padding: 0;}
+.local-nav li{display: inline;padding: 0 30px;}
+
+/* 装飾ボックス */
+.inner{border: 2px solid #ccc;margin: 20px 0;padding: 20px;border-radius:8px;}
+.box{border: 1px solid #ccc;border-radius: 4px;padding: 10px;}
+/* カウンター */
+.counter, .counter a{font-size: smaller;text-align: right;}
+/* 余白調整 */
+.inner:first-child{margin-bottom: 0;}
+main section:first-child, .site main h2:first-child{margin-top: 0;}
+main section:last-child, .novel:last-child, main ul:last-child{margin-bottom: 0;}
+
+/* ============================================================
+  適用デバイス：タブレット(sm)・デスクトップ(md)・大画面デスクトップ(lg)
+   ============================================================ */
+@media all and (min-width: 768px) {
+body{margin: 30px 0;}
+.link-bn dt{float: left;}
+.link-bn dd{margin-left: 210px;padding: 0 0 0 10px;}
+.btn-inline{display: inline;}
+}

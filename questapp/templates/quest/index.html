@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block customcss %}
+<link rel="stylesheet"  type='text/css' href="{% static 'stylesheets/quest/card.css' %}">
+{% endblock customcss %}
+
+{% block content %}
+<div class="container page-block">
+
+  <div>
+    <h3 class="page-title">
+      <i class="fas fa-scroll"></i>
+      Quest Board
+    </h3>
+  </div>
+
+  {% for quest in page_quests %}
+    {% include 'quest/_card.html' %}
+  {% endfor %}
+
+</div>
+{% endblock content %}
+
+{% block footer %}
+  {% include 'quest/_pagination.html' %}
+{% endblock footer %}

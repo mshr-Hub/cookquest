@@ -1,0 +1,39 @@
+.main-inner {
+  height: 500px;
+  overflow: scroll;
+}
+
+.message {
+  width: 80%;
+  padding-bottom: 1.3rem;
+}
+
+.username {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.current_username {
+  color: orange;
+  text-align: right;
+}
+
+.message_body {
+  margin-bottom: 0;
+}
+
+.current_user_message_image {
+  text-align: right;
+}
+
+.quest_user_message {
+  margin: 0 auto 0 0;
+}
+
+.current_user_message {
+  margin: 0 0 0 auto;
+}
+
+.current_user_message_date {
+  text-align: right;
+}

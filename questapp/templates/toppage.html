@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block customcss %}
+<link rel="stylesheet"  type='text/css' href="{% static 'stylesheets/quest/card.css' %}">
+{% endblock customcss %}
+
+{% block content %}
+<div class="container page-block">
+
+  <div>
+    <h3 class="page-title top-page_page-title">
+      <i class="fas fa-utensils"></i>
+      CookQUEST Start!!
+      <i class="fas fa-dragon"></i>
+    </h3>
+  </div>
+
+  <div class="container">
+    {% if error %}
+      <div style="font-family: 'VT323', cursive; font-size: 1.5rem; text-align: center;" class="alert alert-danger" role="alert">
+        {{ error }}
+      </div>
+    {% endif %}
+  </div>
+
+  <nav>
+    <div class="inner">
+      <ul class="gnav">
+        <li><a href="{% url 'signup' %}">ユーザー登録</a></li>
+        <li><a href="{% url 'login' %}">ログイン</a></li>
+        <li><a href="{% url 'logout' %}">ログアウト</a></li>
+      </ul>
+    </div>
+
+    <div class="inner">
+      <ul class="gnav">
+        <li><a href="{% url 'index' %}">クエスト一覧</a></li>
+        <li><a href="{% url 'search' %}">クエスト検索</a></li>
+        <li><a href="{% url 'create' %}">クエスト依頼</a></li>
+      </ul>
+    </div>
+
+    {% if user.is_authenticated %}
+    <div class="inner">
+      <ul class="gnav">
+        <li><a href="{% url 'mypage' user.pk %}">マイページ</a></li>
+      </ul>
+    </div>
+    {% endif %}
+  </nav>
+
+</div>
+{% endblock content %}

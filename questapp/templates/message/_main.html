@@ -1,0 +1,15 @@
+{% load static %}
+
+{% block customcss %}
+<link rel="stylesheet"  type='text/css' href="{% static 'stylesheets/message/main.css' %}">
+{% endblock customcss %}
+
+<div class="main col-9">
+  <div class="inner main-inner messages">
+
+  {% for message in messages %}
+    {% include 'message/_message.html' %}
+  {% endfor %}
+
+  </div>
+</div>

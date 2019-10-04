@@ -1,0 +1,28 @@
+{% load static %}
+
+{% block customcss %}
+<link rel="stylesheet"  type='text/css' href="{% static 'stylesheets/quest/card.css' %}">
+{% endblock customcss %}
+
+<nav>
+  <div class="inner">
+    <ul class="gnav">
+      <small class="quest-font">Quest title</small>
+      <li>
+        <a href="{% url 'detail' quest.pk %}">{{ quest.title }}</a>
+      </li>
+      <small class="quest-font">Quest memo</small>
+      <li>
+        {{ quest.memo }}
+      </li>
+      <small class="quest-font">Quest user</small>
+      <li>
+        {{ quest.author }}
+      </li>
+      <small class="quest-font">Quest created_at</small>
+      <li>
+        {{ quest.created_at }}
+      </li>
+    </ul>
+  </div>
+</nav>

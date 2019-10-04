@@ -1,0 +1,25 @@
+{% load static %}
+
+{% block customcss %}
+<link rel="stylesheet"  type='text/css' href="{% static 'stylesheets/message/form.css' %}">
+{% endblock customcss %}
+
+<div class="form container">
+  <form class="inner form-inner" id="message_form" method="POST" action="{% url 'message_create' quest.pk %}" enctype="multipart/form-data">{% csrf_token %}
+    <textarea name="message_text" rows="1" type="text" class="form-control message_text" placeholder="Message"></textarea>
+    <label>
+      <span class="icon_label" title="ファイルを選択">
+        <i class="far fa-image" id="image_label"></i>
+      </span>
+      <input name="message_image" type="file" id="image_send">
+    </label>
+    <input name="author" type="hidden" value="{{ user.username }}">
+    <input name="quest" type="hidden" value="{{ quest.pk }}">
+    <label>
+      <span class="icon_label" title="送信">
+        <i class="far fa-paper-plane" id="submit_label"></i>
+      </span>
+      <button type="submit" id="submit_btn"></button>
+    </label>
+  </form>
+</div>

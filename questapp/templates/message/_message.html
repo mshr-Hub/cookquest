@@ -1,0 +1,39 @@
+{% if request.user == message.author %}
+  <div class="message current_user_message">
+    <div class="username current_username">
+      <small>{{ message.author }}</small>
+    </div>
+    {% if message.text %}
+      <div class="message_body current_user_message_body alert alert-light text-dark">
+        {{ message.text | linebreaksbr }}
+      </div>
+    {% endif %}
+    {% if message.image %}
+      <div style="margin: 0;" class="inner message_image current_user_message_image">
+        <img src="{{ message.image.url }}" class="img-fluid">
+      </div>
+    {% endif %}
+    <div class="current_user_message_date">
+      <small>{{ message.created_at }}</small>
+    </div>
+  </div>
+{% else %}
+  <div class="message quest_user_message">
+    <div class="username quest_username">
+      <small>{{ message.author }}</small>
+    </div>
+    {% if message.text %}
+      <div class="message_body message_body alert alert-light text-dark">
+        {{ message.text | linebreaksbr }}
+      </div>
+    {% endif %}
+    {% if message.image %}
+      <div style="margin: 0;" class="inner message_image">
+        <img src="{{ message.image.url }}" class="img-fluid">
+      </div>
+    {% endif %}
+    <div class="quest_user_message_date">
+      <small>{{ message.created_at }}</small>
+    </div>
+  </div>
+{% endif %}

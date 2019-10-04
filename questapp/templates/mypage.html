@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block customcss %}
+<link rel="stylesheet"  type='text/css' href="{% static 'stylesheets/quest/card.css' %}">
+<link rel="stylesheet"  type='text/css' href="{% static 'stylesheets/mypage.css' %}">
+{% endblock customcss %}
+
+{% block content %}
+<div class="container page-block">
+
+  <div>
+    <h3 class="page-title">
+      <i class="fas fa-medal"></i>
+      My Page
+    </h3>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      <nav>
+        <div class="inner">
+          <p class="mypage_cards-title quest-font">User Data</p>
+          <ul class="gnav">
+            <small class="quest-font">Username</small>
+            <li>
+              {{ user.username }}
+            </li>
+            <small class="quest-font">Job</small>
+            <li>
+              職業
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="col-6">
+      <nav>
+        <div class="inner">
+          <p class="mypage_cards-title quest-font">Status</p>
+          <ul class="gnav">
+            <li>
+              <small class="quest-font">HP: </small>
+              ??
+            </li>
+            <li>
+              <small class="quest-font">MP: </small>
+              ??
+            </li>
+            <li>
+              <small class="quest-font">ATK: </small>
+              ??
+            </li>
+            <li>
+              <small class="quest-font">DEF: </small>
+              ??
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  {% if quests %}
+  <div class="col-12">
+    <nav>
+      <div class="inner">
+        <p class="mypage_cards-title quest-font">My New Quests</p>
+        <ul class="gnav">
+          <small class="quest-font">Quest title</small>
+          {% for quest in quests %}
+          <li class="inner">
+            <a href="{% url 'detail' quest.pk %}">{{ quest.title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </nav>
+  </div>
+  {% endif %}
+
+</div>
+{% endblock content %}
