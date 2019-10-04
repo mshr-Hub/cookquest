@@ -8,18 +8,26 @@ from .models import CustomUser, Quest, Message
 # Create your views here.
 
 def toppage(request):
+    """
+    トップページ
+    """
     return render(request, 'toppage.html')
 
 
 @login_required
 def quest_index(request):
+    """
+    クエスト一覧
+    """
     quests = Quest.objects.order_by("-created_at")
     page_quests = paginate_query(request, quests, settings.PAGE_PER_ITEM)
     return render(request, 'quest/index.html', {'quests': quests, 'page_quests': page_quests})
 
 
-# ページネーション用に、Pageオブジェクトを返す。
 def paginate_query(request, queryset, count):
+    """
+    ページネーション用に、Pageオブジェクトを返す。
+    """
     paginator = Paginator(queryset, count)
     page = request.GET.get('page')
     try:
@@ -33,6 +41,9 @@ def paginate_query(request, queryset, count):
 
 @login_required
 def quest_create(request):
+    """
+    クエスト依頼
+    """
     if request.method == 'POST':
         quest_title = request.POST['quest_title']
         quest_memo = request.POST['quest_memo']
@@ -40,6 +51,9 @@ def quest_create(request):
         quest_image = request.FILES.get('quest_image', '')
         customuser_name = request.POST['author']
         author = CustomUser.objects.get(username=customuser_name)
+        """
+        クエスト依頼のバリデーション
+        """
         if quest_title == '':
             return render(request, 'quest/create.html', {'title_validate': 'Please input Quest title'})
         if quest_memo == '':
@@ -53,12 +67,18 @@ def quest_create(request):
 
 @login_required
 def quest_detail(request, pk):
+    """
+    クエスト詳細
+    """
     quest = Quest.objects.get(pk=pk)
     return render(request, 'quest/detail.html', {'quest': quest})
 
 
 @login_required
 def quest_delete(request, pk):
+    """
+    クエスト削除確認画面
+    """
     quest = Quest.objects.get(pk=pk)
     if request.method == 'POST':
         quest.delete()
@@ -68,6 +88,9 @@ def quest_delete(request, pk):
 
 @login_required
 def quest_update(request, pk):
+    """
+    クエスト情報更新
+    """
     quest = Quest.objects.get(pk=pk)
     if request.method == 'POST':
         quest_title = request.POST['quest_title']
@@ -76,6 +99,9 @@ def quest_update(request, pk):
         quest_image = request.FILES.get('quest_image', quest.image)
         customuser_name = request.POST['author']
         author = CustomUser.objects.get(username=customuser_name)
+        """
+        クエスト情報更新のバリデーション
+        """
         if quest_title == '':
             return render(request, 'quest/update.html', {'title_validate': 'Please input Quest title'})
         if quest_memo == '':
@@ -89,10 +115,16 @@ def quest_update(request, pk):
 
 @login_required
 def quest_search(request):
+    """
+    クエスト検索
+    """
     if request.method == 'POST':
         quest_title = request.POST['quest_title']
         quests = Quest.objects.filter(title__icontains=quest_title).order_by("-created_at")
         page_quests = paginate_query(request, quests, settings.PAGE_PER_ITEM)
+        """
+        クエスト検索のバリデーション
+        """
         if quest_title == '':
             return render(request, 'quest/search.html', {'title_validate': 'Please input Quest title'})
         return render(request, 'quest/search_result.html', {'quests': quests, 'page_quests': page_quests})
@@ -100,6 +132,9 @@ def quest_search(request):
 
 
 def app_login(request):
+    """
+    ログイン機能
+    """
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
@@ -115,6 +150,9 @@ def app_login(request):
 
 
 def app_signup(request):
+    """
+    ユーザー登録機能
+    """
     if request.method == 'POST':
         username = request.POST['username']
         email = request.POST['email']
@@ -131,12 +169,18 @@ def app_signup(request):
 
 
 def app_logout(request):
+    """
+    ログアウト機能
+    """
     logout(request)
     return redirect('toppage')
 
 
 @login_required
 def mypage(request, pk):
+    """
+    マイページ
+    """
     user = CustomUser.objects.get(pk=pk)
     quests = user.create_quest.filter(author=user).order_by("-created_at")[0:3]
     return render(request, 'mypage.html', {'user': user, 'quests': quests})
@@ -144,8 +188,14 @@ def mypage(request, pk):
 
 @login_required
 def message_index(request, pk):
+    """
+    メッセージ画面
+    """
     quest = Quest.objects.get(pk=pk)
     messages = quest.quest_message.filter(quest=quest)
+    """
+    同期通信でのメッセージ送信
+    """
     # if request.method == 'POST':
     #     quest = Quest.objects.get(pk=pk)
     #     customuser_name = request.POST['author']

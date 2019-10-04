@@ -13,6 +13,9 @@ import json
 
 @require_POST
 def ajax_message_create(request, pk):
+    """
+    非同期でのメッセージ送信
+    """
     message_text = request.POST['message_text']
     message_image = request.FILES.get('message_image', '')
     customuser_name = request.POST['author']
