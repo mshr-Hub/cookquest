@@ -1,39 +1,3 @@
-@keyframes rainbow-anim {
-  0% {
-    color: red;
-  }
-  10% {
-    color: orange;
-  }
-  20% {
-    color: yellow;
-  }
-  30% {
-    color: yellowgreen;
-  }
-  40% {
-    color: greenyellow;
-  }
-  50% {
-    color: white;
-  }
-  60% {
-    color: lightseagreen;
-  }
-  70% {
-    color: lightskyblue;
-  }
-  80% {
-    color: lightcoral;
-  }
-  90% {
-    color: violet;
-  }
-  100% {
-    color: blueviolet;
-  }
-}
-
 .page-block {
   margin-top: 1.5rem;
 }
@@ -49,10 +13,6 @@
   font-family: 'VT323', cursive;
   font-size: 1.4rem;
   color: coral;
-}
-
-.top-page_page-title {
-  animation: rainbow-anim 1200ms infinite 50ms;
 }
 
 #delete_button {
