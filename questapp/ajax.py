@@ -33,7 +33,7 @@ def ajax_message_create(request, pk):
     message_dict = {
         'message_text': message.text,
         'message_image': post_image,
-        'author': customuser_name,
+        'author': message.author.username,
         'created_at': message.created_at.now(pytz.timezone('Asia/Tokyo')).strftime("%Y年%-m月%d日%H:%M"),
     }
     return JsonResponse(message_dict)
