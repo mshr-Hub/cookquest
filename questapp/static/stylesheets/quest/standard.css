@@ -1,0 +1,16 @@
+.page-block {
+  margin-top: 1.5rem;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: 'VT323', cursive;
+}
+
+.quest-font {
+  font-family: 'VT323', cursive;
+  font-size: 1.4rem;
+  color: coral;
+}

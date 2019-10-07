@@ -20,50 +20,16 @@
 
     <title>CookQUEST</title>
   </head>
-  <body style="margin-bottom: 0;">
+  <body style="margin: 150px 0 0 0;">
 
     {% block header %}
-    <header style="background-color: #333;" class="navbar navbar-expand-lg fixed-top">
-      <div class="col-2 col-lg-2">
-        <div style="font-family: 'VT323', cursive;">
-          <a style="color: #ccc; margin: 0;" class="inner btn btn-secondary btn-lg dropdown-toggle" href="#" id="navbarDropdown header-menu-btn" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Menu
-          </a>
-<!-- dropdown menu start -->
-          <div class="gnav">
-            <div class="dropdown-menu container" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{% url 'signup' %}">ユーザー登録</a>
-              <a class="dropdown-item" href="{% url 'login' %}">ログイン</a>
-              <a class="dropdown-item" href="{% url 'logout' %}">ログアウト</a>
-                <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="{% url 'index' %}">クエスト一覧</a>
-              <a class="dropdown-item" href="{% url 'search' %}">クエスト検索</a>
-              <a class="dropdown-item" href="{% url 'create' %}">クエスト依頼</a>
-              {% if user.is_authenticated %}
-                <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="{% url 'mypage' user.pk %}">マイページ</a>
-              {% endif %}
-            </div>
-          </div>
-<!-- dropdown menu end -->
-        </div>
-      </div>
-
-      <div class="col-9 col-lg-10">
-        <div class="inner">
-          <h1 class="site-title">
-            <a href="{% url 'toppage' %}">
-              CookQUEST
-            </a>
-          </h1>
-        </div>
-      </div>
-    </header>
+      {% include './_header.html' %}
     {% endblock header %}
 
-    <div style="padding-top: 100px;"></div>
+    <div class="wrapper">
     {% block content %}
     {% endblock content %}
+    </div>
 
     {% block footer %}
     {% endblock footer %}

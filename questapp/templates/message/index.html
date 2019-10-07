@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block customcss %}
-<link rel="stylesheet"  type='text/css' href="{% static 'stylesheets/quest/card.css' %}">
+<link rel="stylesheet"  type='text/css' href="{% static 'stylesheets/quest/standard.css' %}">
 {% endblock customcss %}
 
 {% block content %}
@@ -48,9 +48,9 @@ var csrftoken = getCookie('csrftoken');
 
 $(function() {
   function buildHTML(message) {
-    var post_text = message.message_text? `<div class="message_body current_user_message_body alert alert-light text-dark"> ${message.message_text} </div>` : `<div style="display: none;"></div>`;
+    var post_text = message.message_text? `<div class="message_body current_user_message_body alert alert-light text-dark"> ${message.message_text} </div>` : ``;
     var message_text = post_text.replace(/\n|\r\n|\r/g, '<br>');
-    var message_image = message.message_image? `<div style="margin: 0;" class="inner message_image current_user_message_image"> <img src="${message.message_image}" class="img-fluid"> </div>` : `<div style="display: none;"></div>`;
+    var message_image = message.message_image? `<div style="margin: 0;" class="inner message_image current_user_message_image"> <img src="${message.message_image}" class="img-fluid"> </div>` : ``;
     var html = `<div class="message current_user_message">
                   <div class="username current_username">
                     <small>${message.author}</small>
