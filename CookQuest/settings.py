@@ -19,8 +19,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'k&e%n8wqv5j-o538rw5(x+f&j=9r3(-5ly_8x7ekrf6u^3^uc4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -133,3 +131,9 @@ LOGIN_URL = 'login'
 AUTH_USER_MODEL = 'questapp.CustomUser'
 
 PAGE_PER_ITEM = 3
+
+# local_settings.pyを読み込む
+try:
+    from .local_settings import *
+except ImportError:
+    pass

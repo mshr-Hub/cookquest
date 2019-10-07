@@ -62,6 +62,7 @@ coverage.xml
 local_settings.py
 db.sqlite3
 media
+get_random_secret_key.py
 
 # Flask stuff:
 instance/
