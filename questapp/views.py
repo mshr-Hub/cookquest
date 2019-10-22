@@ -173,7 +173,7 @@ def app_logout(request):
     ログアウト機能
     """
     logout(request)
-    return redirect('toppage')
+    return redirect(settings.LOGOUT_REDIRECT_URL)
 
 
 @login_required
