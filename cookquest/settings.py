@@ -157,9 +157,8 @@ if not DEBUG:
     AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
     }
-    AWS_LOCATION = 'media'
     DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-    MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+    MEDIA_URL = "https://%s/" % AWS_S3_CUSTOM_DOMAIN
 
     AWS_S3_FILE_OVERWRITE = False
     AWS_DEFAULT_ACL = None
