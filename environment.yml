@@ -1,4 +1,4 @@
-name: CookQuest
+name: cookquest
 channels:
   - defaults
   - conda-forge
@@ -36,5 +36,5 @@ dependencies:
     - django-heroku==0.3.1
     - psycopg2==2.8.4
     - whitenoise==4.1.4
-prefix: /Users/mac.mas6/anaconda3/envs/CookQuest
+prefix: /Users/mac.mas6/anaconda3/envs/cookquest
 

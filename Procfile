@@ -1,1 +1,1 @@
-web: gunicorn CookQuest.wsgi --log-file -
+web: gunicorn cookquest.wsgi --log-file -
