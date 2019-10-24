@@ -192,7 +192,7 @@ def message_index(request, pk):
     メッセージ画面
     """
     quest = Quest.objects.get(pk=pk)
-    messages = quest.quest_message.filter(quest=quest)
+    messages = quest.quest_message.filter(quest=quest).order_by("created_at")
     """
     同期通信でのメッセージ送信
     """
