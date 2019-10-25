@@ -155,7 +155,6 @@ if not DEBUG:
 
     DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
     MEDIA_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
-    MEDIA_ROOT = ''
 
     AWS_S3_FILE_OVERWRITE = False
     AWS_DEFAULT_ACL = None
