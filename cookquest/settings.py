@@ -158,6 +158,7 @@ if not DEBUG:
     'CacheControl': 'max-age=86400',
     }
     DEFAULT_FILE_STORAGE = 'cookquest.backends.MediaStorage'
+    MEDIA_URL = "https://%s/%s/" % AWS_S3_CUSTOM_DOMAIN
 
     AWS_S3_FILE_OVERWRITE = False
     AWS_DEFAULT_ACL = None
