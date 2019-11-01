@@ -26,9 +26,9 @@
             <li>
               {{ user.username }}
             </li>
-            <small class="quest-font">Job</small>
+            <small class="quest-font">You are...</small>
             <li>
-              職業
+              {{ user.pk }}人目の勇者です
             </li>
           </ul>
         </div>
@@ -40,19 +40,19 @@
         <div class="inner">
           <p class="mypage_cards-title quest-font">Status</p>
           <ul class="gnav">
-            <li>
+            <li class="hp">
               <small class="quest-font">HP: </small>
               ??
             </li>
-            <li>
+            <li class="mp">
               <small class="quest-font">MP: </small>
               ??
             </li>
-            <li>
+            <li class="atk">
               <small class="quest-font">ATK: </small>
               ??
             </li>
-            <li>
+            <li class="def">
               <small class="quest-font">DEF: </small>
               ??
             </li>
@@ -66,7 +66,7 @@
   <div class="col-12">
     <nav>
       <div class="inner">
-        <p class="mypage_cards-title quest-font">My New Quests</p>
+        <p class="mypage_cards-title quest-font">New Quests</p>
         <ul class="gnav">
           <small class="quest-font">Quest title</small>
           {% for quest in quests %}
@@ -82,3 +82,7 @@
 
 </div>
 {% endblock content %}
+
+{% block customjs %}
+  <script src="{% static 'javascripts/status.js' %}"></script>
+{% endblock customjs %}
