@@ -1,2 +1,8 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# templates下のコードをリポジトリのコードステータスから除外
+templates/* linguist-vendored
+
+# static下のコードをリポジトリのコードステータスから除外
+static/* linguist-vendored
