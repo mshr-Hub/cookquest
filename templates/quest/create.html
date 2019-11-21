@@ -34,25 +34,25 @@
   <form class="form-signin" method="POST" action="" enctype="multipart/form-data">{% csrf_token %}
     <div class="container">
       <div class="form-group">
-        <label>クエストタイトル</label>
-        <input name='quest_title' type="text" class="form-control" placeholder="Quest title">
+        <label class="quest-font">Quest title</label>
+        <input name='quest_title' type="text" class="form-control" placeholder="クエストタイトル">
       </div>
       <div class="form-group">
-        <label>クエスト概要</label>
-        <input name="quest_memo" type="text" class="form-control" placeholder="Quest memo">
+        <label class="quest-font">Quest memo</label>
+        <input name="quest_memo" type="text" class="form-control" placeholder="クエスト概要">
       </div>
       <div class="form-group">
-        <label>クエスト詳細</label>
-        <textarea rows="9" name="quest_text" type="text" class="form-control" placeholder="Quest text"></textarea>
+        <label class="quest-font">Quest text</label>
+        <textarea rows="9" name="quest_text" type="text" class="form-control" placeholder="クエスト詳細"></textarea>
       </div>
       <div class="form-group">
-        <label>クエスト画像</label>
+        <label class="quest-font">Quest image</label>
         <input name="quest_image" type="file" class="form-control">
       </div>
       <div class="form-group">
         <input name="author" type="hidden" value="{{ user.username }}">
       </div>
-      <button type="submit" class="btn btn-primary">クエスト依頼</button>
+      <button type="submit" class="btn btn-primary quest-font">Create!</button>
     </div>
   </form>
 
