@@ -33,28 +33,38 @@
 
   <form class="form-signin" method="POST" action="" enctype="multipart/form-data">{% csrf_token %}
     <div class="container">
-      <div class="form-group">
-        <label>クエストタイトル</label>
-        <input name='quest_title' type="text" class="form-control" placeholder="Quest title">
+      <div class="form-group quest_title">
+        <label class="quest-font">Quest title</label>
+        <input name='quest_title' type="text" class="form-control" placeholder="クエストタイトル">
       </div>
-      <div class="form-group">
-        <label>クエスト概要</label>
-        <input name="quest_memo" type="text" class="form-control" placeholder="Quest memo">
+      <div class="form-group quest_memo">
+        <label class="quest-font">Quest memo</label>
+        <input name="quest_memo" type="text" class="form-control" placeholder="クエスト概要">
       </div>
-      <div class="form-group">
-        <label>クエスト詳細</label>
-        <textarea rows="9" name="quest_text" type="text" class="form-control" placeholder="Quest text"></textarea>
+      <div class="form-group quest_text">
+        <label class="quest-font">Quest text</label>
+        <textarea rows="9" name="quest_text" type="text" class="form-control" placeholder="クエスト詳細"></textarea>
       </div>
-      <div class="form-group">
-        <label>クエスト画像</label>
-        <input name="quest_image" type="file" class="form-control">
+      <div class="inner current_image">
+        <small class="quest-font">Current image</small>
+        <div style="text-align: center;">
+          <img class="img-fluid">
+        </div>
       </div>
-      <div class="form-group">
+      <div class="form-group quest_image">
+        <label class="quest-font">Quest image</label>
+        <input id="quest_image" name="quest_image" type="file" class="form-control">
+      </div>
+      <div class="form-group quest_author">
         <input name="author" type="hidden" value="{{ user.username }}">
       </div>
-      <button type="submit" class="btn btn-primary">クエスト依頼</button>
+      <button type="submit" class="btn btn-primary quest-font">Create!</button>
     </div>
   </form>
 
 </div>
 {% endblock content %}
+
+{% block customjs %}
+  <script src="{% static 'javascripts/quest_image.js' %}"></script>
+{% endblock customjs %}

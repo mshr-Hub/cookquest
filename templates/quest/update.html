@@ -33,36 +33,42 @@
 
   <form class="form-signin" method="POST" action="" enctype="multipart/form-data">{% csrf_token %}
     <div class="container">
-      <div class="form-group">
-        <label>クエストタイトル</label>
-        <input name='quest_title' type="text" class="form-control" placeholder="Quest title" value="{{ quest.title }}">
+      <div class="form-group quest_title">
+        <label class="quest-font">Quest title</label>
+        <input name='quest_title' type="text" class="form-control" placeholder="クエストタイトル" value="{{ quest.title }}">
       </div>
-      <div class="form-group">
-        <label>クエスト概要</label>
-        <input name="quest_memo" type="text" class="form-control" placeholder="Quest memo" value="{{ quest.memo }}">
+      <div class="form-group quest_memo">
+        <label class="quest-font">Quest memo</label>
+        <input name="quest_memo" type="text" class="form-control" placeholder="クエスト概要" value="{{ quest.memo }}">
       </div>
-      <div class="form-group">
-        <label>クエスト詳細</label>
-        <textarea rows="9" name="quest_text" type="text" class="form-control" placeholder="Quest text">{{ quest.text }}</textarea>
+      <div class="form-group quest_text">
+        <label class="quest-font">Quest text</label>
+        <textarea rows="9" name="quest_text" type="text" class="form-control" placeholder="クエスト詳細">{{ quest.text }}</textarea>
       </div>
-      {% if quest.image %}
-      <div class="inner">
-        <small class="quest-font">Current Quest image</small>
+      <div class="inner current_image">
+        <small class="quest-font">Current image</small>
         <div style="text-align: center;">
-          <img src="{{ quest.image.url }}" class="img-fluid">
+          {% if quest.image %}
+            <img src="{{ quest.image.url }}" class="img-fluid">
+          {% else %}
+            <img class="img-fluid">
+          {% endif %}
         </div>
       </div>
-      {% endif %}
-      <div class="form-group">
-        <label>クエスト画像</label>
-        <input name="quest_image" type="file" class="form-control" value="{{ quest.image }}">
+      <div class="form-group quest_image">
+        <label class="quest-font">Quest image</label>
+        <input id="quest_image" name="quest_image" type="file" class="form-control" value="{{ quest.image }}">
       </div>
-      <div class="form-group">
+      <div class="form-group quest_author">
         <input name="author" type="hidden" value="{{ user.username }}">
       </div>
-      <button type="submit" class="btn btn-primary">クエスト更新</button>
+      <button type="submit" class="btn btn-primary quest-font">Update!</button>
     </div>
   </form>
 
 </div>
 {% endblock content %}
+
+{% block customjs %}
+  <script src="{% static 'javascripts/quest_image.js' %}"></script>
+{% endblock customjs %}
