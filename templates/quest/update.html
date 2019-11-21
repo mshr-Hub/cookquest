@@ -45,14 +45,16 @@
         <label class="quest-font">Quest text</label>
         <textarea rows="9" name="quest_text" type="text" class="form-control" placeholder="クエスト詳細">{{ quest.text }}</textarea>
       </div>
-      {% if quest.image %}
       <div class="inner current_image">
         <small class="quest-font">Current image</small>
         <div style="text-align: center;">
-          <img src="{{ quest.image.url }}" class="img-fluid">
+          {% if quest.image %}
+            <img src="{{ quest.image.url }}" class="img-fluid">
+          {% else %}
+            <img class="img-fluid">
+          {% endif %}
         </div>
       </div>
-      {% endif %}
       <div class="form-group quest_image">
         <label class="quest-font">Quest image</label>
         <input id="quest_image" name="quest_image" type="file" class="form-control" value="{{ quest.image }}">
