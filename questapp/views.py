@@ -108,7 +108,7 @@ def quest_update(request, pk):
             return render(request, 'quest/update.html', {'memo_validate': 'Please input Quest memo'})
         if quest_text == '':
             return render(request, 'quest/update.html', {'text_validate': 'Please input Quest text'})
-        Quest.objects.filter(pk=pk).update(title=quest_title, memo=quest_memo, text=quest_text, image=quest_image, author=author)
+        Quest.objects.filter(pk=pk).update_or_create(title=quest_title, memo=quest_memo, text=quest_text, image=quest_image, author=author)
         return redirect('index')
     return render(request, 'quest/update.html', {'quest': quest})
 
