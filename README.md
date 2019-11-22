@@ -6,7 +6,7 @@ https://cookquest.herokuapp.com/
 
 # DB設計
 
-## Customusers
+## CustomUsers
 |Column|Type|Options|
 |------|----|-------|
 |username|CharField|max_length=150, unique=True|
