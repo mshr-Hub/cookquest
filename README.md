@@ -3,7 +3,7 @@
 
 
 ## **本番環境**
-https://cookquest.herokuapp.com/
+<a href="https://cookquest.herokuapp.com/" target="_blank">CookQUEST</a>
 
 ### 《テストユーザーのログイン情報》
 - ユーザー名：勇者ヨシヒコ
