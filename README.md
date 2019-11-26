@@ -62,4 +62,4 @@
 
 ### Association
 - belongs_to :Customuser
-- belongs_to :Quests
+- belongs_to :Quest
