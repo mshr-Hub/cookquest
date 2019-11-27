@@ -3,6 +3,11 @@
 
 # 本番環境へのアクセス
 ## 本番環境はこちらからご覧になれます。 <br><b> ▶︎ [CookQUEST](https://cookquest.herokuapp.com/)
+
+### 《開発環境》
+- Python, Django, bootstrap, jQuery, Heroku, S3
+- 仮想環境の構築はAnacondaで行いました。
+
 ### 《テストユーザーのログイン情報》
 - ユーザー名：勇者ヨシヒコ
 - 秘密の呪文(パスワード)：hogefuga1
