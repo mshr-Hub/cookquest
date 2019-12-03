@@ -15,56 +15,21 @@
     </h3>
   </div>
 
-  <div class="inner">
-    <nav>
-      <div class="inner">
-        <ul class="gnav">
-          <small class="quest-font">Quest title</small>
-          <li>
-            {{ quest.title }}
-          </li>
-          <small class="quest-font">Quest memo</small>
-          <li>
-            {{ quest.memo }}
-          </li>
-          <small class="quest-font">Quest text</small>
-          <li>
-            {{ quest.text | linebreaksbr }}
-          </li>
-          <small class="quest-font">Quest author</small>
-          <li>
-            {{ quest.author }}
-          </li>
-          <small class="quest-font">Quest created</small>
-          <li>
-            {{ quest.created_at }}
-          </li>
-        </ul>
-      </div>
-      {% if quest.image %}
-      <div class="inner">
-        <small class="quest-font">Quest image</small>
-        <div style="text-align: center;">
-          <img src="{{ quest.image.url }}" class="img-fluid">
-        </div>
-      </div>
-      {% endif %}
-    </nav>
-    <div style="text-align: center; margin-top: 1.2rem;">
-      {% if request.user == quest.author %}
-        <button type="button" class="btn btn-secondary col-2">
-          <a style="display: block;" class="quest-font" href="{% url 'delete' quest.pk %}">Delete</a>
-        </button>
-      {% endif %}
-      <button type="button" class="btn btn-secondary col-3">
-        <a style="display: block;" class="quest-font text-info" href="{% url 'message_index' quest.pk %}">Quest Start!!</a>
-      </button>
-      {% if request.user == quest.author %}
+  {% include 'quest/_detail_card.html' %}
+  <div style="text-align: center; margin-top: 1.2rem;">
+    {% if request.user == quest.author %}
       <button type="button" class="btn btn-secondary col-2">
-        <a style="display: block;" class="quest-font" href="{% url 'update' quest.pk %}">Update</a>
+        <a style="display: block;" class="quest-font" href="{% url 'delete' quest.pk %}">Delete</a>
       </button>
-      {% endif %}
-    </div>
+    {% endif %}
+    <button type="button" class="btn btn-secondary col-3">
+      <a style="display: block;" class="quest-font text-info" href="{% url 'message_index' quest.pk %}">Quest Start!!</a>
+    </button>
+    {% if request.user == quest.author %}
+    <button type="button" class="btn btn-secondary col-2">
+      <a style="display: block;" class="quest-font" href="{% url 'update' quest.pk %}">Update</a>
+    </button>
+    {% endif %}
   </div>
 
 </div>
